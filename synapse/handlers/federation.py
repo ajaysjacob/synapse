@@ -1207,7 +1207,7 @@ class FederationHandler:
             event.internal_metadata.send_on_behalf_of = self.hs.hostname
 
             try:
-                validate_event_for_room_version(room_version_obj, event)
+                validate_event_for_room_version(event)
                 await self._event_auth_handler.check_auth_rules_from_context(
                     room_version_obj, event, context
                 )
@@ -1259,7 +1259,7 @@ class FederationHandler:
         )
 
         try:
-            validate_event_for_room_version(room_version_obj, event)
+            validate_event_for_room_version(event)
             await self._event_auth_handler.check_auth_rules_from_context(
                 room_version_obj, event, context
             )
